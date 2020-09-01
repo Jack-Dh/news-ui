@@ -7,15 +7,16 @@ Page({
         motto: 'Hello World',
         userInfo: {},
         hasUserInfo: false,
-        canIUse: wx.canIUse('button.open-type.getUserInfo')
+        canIUse: wx.canIUse('button.open-type.getUserInfo'),
+        data: []
     },
     //事件处理函数
-    bindViewTap: function() {
+    bindViewTap: function () {
         wx.navigateTo({
             url: '../logs/logs'
         })
     },
-    btnclick: function() {
+    btnclick: function () {
         // 登录
         console.log(app.apis.getUserCode)
         wx.login({
@@ -23,16 +24,18 @@ Page({
                 app.http.http(app.apis.getUserCode, "get", {
                     "js_code": res.code
                 }).then(data => {
+                    wx.setStorageSync('openid', data.data.openid)
+                    wx.setStorageSync('session_key', data.data.session_key)
                     console.log(data)
                 })
 
                 console.log(res.code)
-                    // 发送 res.code 到后台换取 openId, sessionKey, unionId,6ea887423c3c2b07b65a25224518521a
+                // 发送 res.code 到后台换取 openId, sessionKey, unionId,6ea887423c3c2b07b65a25224518521a
             }
         })
     },
-    onLoad: function() {
-
+    onLoad: function () {
+        this.getNewsTitle()
         if (app.globalData.userInfo) {
             this.setData({
                 userInfo: app.globalData.userInfo,
@@ -60,12 +63,20 @@ Page({
             })
         }
     },
-    getUserInfo: function(e) {
+    getUserInfo: function (e) {
         console.log(e)
         app.globalData.userInfo = e.detail.userInfo
         this.setData({
             userInfo: e.detail.userInfo,
             hasUserInfo: true
+        })
+    },
+    getNewsTitle: function () {
+        app.http.http(app.apis.gethotNesTitle).then(res => {
+            this.setData({
+                data: res.data
+            })
+            console.log(res)
         })
     }
 })

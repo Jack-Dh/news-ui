@@ -1,4 +1,4 @@
-function http(url, method, data) {
+function http(url, method = "get", data) {
     return new Promise(function(resolve, reject) {
         wx.request({
             url,
