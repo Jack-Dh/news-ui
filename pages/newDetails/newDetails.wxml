@@ -1,5 +1,5 @@
 <!--pages/newDetails/newDetails.wxml-->
-<view>
+<view class="container">
 <text selectable >{{data.content}}</text>
 </view>
 
