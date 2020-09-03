@@ -1,1 +1,11 @@
 /* pages/newDetails/newDetails.wxss */
+.title {
+  display: block;
+  font-size: 60rpx;
+  font-weight: bold;
+  margin-bottom: 30rpx;
+}
+
+.content {
+  line-height: 65rpx;
+}
