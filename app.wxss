@@ -11,3 +11,9 @@
 .home {
   padding: 10rpx 20rpx;
 }
+
+.time {
+  color: #d9d6eb;
+  font-size: 25rpx;
+  display: block;
+}

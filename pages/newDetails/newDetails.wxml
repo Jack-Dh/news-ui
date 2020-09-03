@@ -1,5 +1,7 @@
-<!--pages/newDetails/newDetails.wxml-->
+<!-- pages/newDetails/newDetails.wxml -->
 <view class="home">
 	<text class="title">{{data.title}}</text>
+  <text selectable class="time">{{data.time}}</text>
 	<text selectable class="content">{{data.content}}</text>
+	<image class="newImage" mode="widthFix" wx:for="{{data.imgUrls}}" wx:for-index="index" wx:key="index" src="{{item}}"></image>
 </view>

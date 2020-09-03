@@ -9,9 +9,9 @@
 	</view>
 	<!-- <button bindtap="btnclick">111</button> -->
 	<view class="home">
-		<view wx:for="{{data}}" wx:for-index="index" wx:key="index">
-			<!-- <text tap="getNewDetails">{{item.title}}</text> -->
-			<navigator class="title" url="/pages/newDetails/newDetails?id={{item.id}}">{{item.title}}</navigator>
+		<view class="content" wx:for="{{data}}" wx:for-index="index" wx:key="index">
+				<navigator class="title" url="/pages/newDetails/newDetails?id={{item.id}}">{{item.title}}</navigator>
+				<text class="time">{{item.time}}</text>
 		</view>
 	</view>
 </view>

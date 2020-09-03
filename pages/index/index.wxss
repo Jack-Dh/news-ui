@@ -1,32 +1,34 @@
 /**index.wxss**/
+
 .userinfo {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .userinfo-avatar {
-  width: 128rpx;
-  height: 128rpx;
-  margin: 20rpx;
-  border-radius: 50%;
+    width: 128rpx;
+    height: 128rpx;
+    margin: 20rpx;
+    border-radius: 50%;
 }
 
 .userinfo-nickname {
-  color: #aaa;
+    color: #aaa;
 }
 
 .usermotto {
-  margin-top: 200px;
+    margin-top: 200px;
 }
-
-
-
+.content{
+  /* line-height: 100rpx; */
+  margin-bottom: 45rpx;
+}
 .title {
-  line-height: 100rpx;
-  display: block;
-  /*这里设置inline-block或者block；根据使用情况来定（行内元素需要加这个，块级元素和行内块级可以不用）*/
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
+    /* line-height: 100rpx; */
+    display: block;
+    /*这里设置inline-block或者block；根据使用情况来定（行内元素需要加这个，块级元素和行内块级可以不用）*/
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }

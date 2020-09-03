@@ -9,3 +9,7 @@
 .content {
   line-height: 65rpx;
 }
+
+.newImage {
+  width: 100%;
+}
