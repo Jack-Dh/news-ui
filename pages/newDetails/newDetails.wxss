@@ -13,3 +13,6 @@
 .newImage {
   width: 100%;
 }
+page{
+  height: 98%;
+}
