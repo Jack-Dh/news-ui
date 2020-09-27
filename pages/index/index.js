@@ -11,12 +11,12 @@ Page({
         data: []
     },
     //事件处理函数
-    bindViewTap: function () {
+    bindViewTap: function() {
         wx.navigateTo({
             url: '../logs/logs'
         })
     },
-    btnclick: function () {
+    btnclick: function() {
         // 登录
         console.log(app.apis.getUserCode)
         wx.login({
@@ -30,11 +30,11 @@ Page({
                 })
 
                 console.log(res.code)
-                // 发送 res.code 到后台换取 openId, sessionKey, unionId,6ea887423c3c2b07b65a25224518521a
+                    // 发送 res.code 到后台换取 openId, sessionKey, unionId,6ea887423c3c2b07b65a25224518521a
             }
         })
     },
-    onLoad: function () {
+    onLoad: function() {
         this.getNewsTitle()
         if (app.globalData.userInfo) {
             this.setData({
@@ -63,7 +63,7 @@ Page({
             })
         }
     },
-    getUserInfo: function (e) {
+    getUserInfo: function(e) {
         console.log(e)
         app.globalData.userInfo = e.detail.userInfo
         this.setData({
@@ -71,12 +71,30 @@ Page({
             hasUserInfo: true
         })
     },
-    getNewsTitle: function () {
+    getNewsTitle: function() {
         app.http.http(app.apis.gethotNesTitle).then(res => {
+            wx.hideNavigationBarLoading() //完成停止加载
+            wx.stopPullDownRefresh() //停止下拉刷新
             this.setData({
                 data: res.data
             })
             console.log(res)
         })
-    }
+    },
+
+    //下拉刷新
+    onPullDownRefresh: function() {
+        console.log(1)
+        wx.showNavigationBarLoading() //在标题栏中显示加载
+        this.getNewsTitle()
+            // wx.showNavigationBarLoading() //在标题栏中显示加载
+
+        // //模拟加载
+        // setTimeout(function()
+        // {
+        //   // complete
+        //   wx.hideNavigationBarLoading() //完成停止加载
+        //   wx.stopPullDownRefresh() //停止下拉刷新
+        // },1500);
+    },
 })
